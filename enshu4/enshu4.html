@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>HTMLの出力</h1>
+      <!-- REFACTOR: replase template literal -->
+      <img src="./1.png" v-if="select_image === '1'" />
+      <img src="./2.png" v-if="select_image === '2'" />
+      <img src="./3.png" v-if="select_image === '3'" />
+      <br />
+      <input type="radio" v-model="select_image" value="1">image1</input>
+      <input type="radio" v-model="select_image" value="2">image1</input>
+      <input type="radio" v-model="select_image" value="3">image1</input>
+    </div>
+
+    <script>
+      var vueobj = new Vue({
+        el: '#app',
+        data: () => ({
+          select_image: '1'
+        }),
+      })
+    </script>
+    <style>
+      .texts {
+        background-color: pink;
+      }
+    </style>
+  </body>
+</html>

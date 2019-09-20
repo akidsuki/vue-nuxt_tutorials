@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      <input type="number" v-model="money" />
+      <p>消費税8%の場合は{{parseInt(money * 1.08)}}円、</p>
+      <p>消費税10%の場合は{{parseInt(money * 1.1)}}円、</p>
+    </div>
+
+    <script>
+      var vueobj = new Vue({
+        el: '#app',
+        data: {
+          money: null
+        }
+      })
+    </script>
+  </body>
+</html>

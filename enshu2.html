@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      <input type="checkbox" v-model="isCheck" />
+      <p v-if="isCheck">チェックされました</p>
+      <p v-else>チェックされていません</p>
+    </div>
+
+    <script>
+      var vueobj = new Vue({
+        el: '#app',
+        data: {
+          isCheck: false
+        }
+      })
+    </script>
+  </body>
+</html>

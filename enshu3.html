@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      <template v-if="texts">
+        <div class="texts">
+          <p v-for="text in texts">{{text}}</p>
+        </div>
+      </template>
+      <input type="text" v-model="input_text" />
+      <button type="button" @click="add_text()">追加する</button>
+    </div>
+
+    <script>
+      var vueobj = new Vue({
+        el: '#app',
+        data: {
+          input_text: "",
+          texts: []
+        },
+        methods: {
+          add_text () {
+            if (this.input_text =="") {
+              return false
+            }
+            this.texts.push(this.input_text)
+            this.input_text = ""
+          },
+        },
+      })
+    </script>
+    <style>
+      .texts {
+        background-color: pink;
+      }
+    </style>
+  </body>
+</html>
