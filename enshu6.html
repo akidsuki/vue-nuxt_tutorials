@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="expected" />
+      <br />
+      <input type="text" v-model="actual" />
+      <br />
+
+      <template v-if="expected !== actual">
+        <p class="col-red">文字が一致しません</p>
+      </template>
+    </div>
+
+    <script>
+      var vueobj = new Vue({
+        el: '#app',
+        data: {
+          expected: '',
+          actual: '',
+        },
+      })
+    </script>
+    <style>
+      .col-red {
+        color: red
+      }
+    </style>
+  </body>
+</html>
