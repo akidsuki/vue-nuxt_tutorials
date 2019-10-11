@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      <comp name="fujisawa" comment="教員" age="36" />
+    </div>
+
+    <script>
+      Vue.component('comp', {
+        props: [
+          'name',
+          'comment',
+          'age'
+        ],
+        template: '<div><p>{{name}}</p><p>{{comment}}({{age}}歳)</p></div>',
+      })
+      var vueobj = new Vue({
+        el: '#app',
+      })
+    </script>
+  </body>
+</html>
