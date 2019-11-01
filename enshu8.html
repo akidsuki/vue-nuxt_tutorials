@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>呪文を唱える</h1>
+      <h3>勇者は{{magic}}を唱えた!</h3>
+      <p>{{result}}</p>
+      <input type="text" v-model="magic" />
+    </div>
+
+    <script>
+      var vueobj = new Vue({
+        el: '#app',
+        data: {
+          magic: null,
+        },
+        computed: {
+          result() {
+            switch (this.magic)
+              {
+                case "メラ":
+                  return "火の玉の攻撃！";
+                case "ギラ":
+                  return "閃光による攻撃！";
+                case "イオ":
+                  return "爆発による攻撃！";
+                case "ヒャド":
+                  return"氷の刃による攻撃！";
+                case "デイン":
+                  return "稲妻による攻撃！";
+                default:
+                  return "…しかし何も起こらなかった。";
+              }
+          }
+        },
+      })
+    </script>
+  </body>
+</html>
