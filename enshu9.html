@@ -39,11 +39,12 @@
               this.cost = 0
               return "そんな商品取り扱ってないぜ！"
             }
-            this.cost = find
 
-            if(this.remainder < 0) {
+            if(this.money < find) {
               return "おやおや、所持金が足りないようだぜ！"
             }
+
+            this.cost = find
 
             return `あいよ！${this.cart}だな！${this.cost}Gだぜ！`
           }
