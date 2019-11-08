@@ -19,7 +19,7 @@
         data() {
           return {
             cart: null,
-            money: 500,
+            money: 20,
             cost: 0,
             goods: {
               "やくそう": 8,
@@ -40,6 +40,11 @@
               return "そんな商品取り扱ってないぜ！"
             }
             this.cost = find
+
+            if(this.remainder < 0) {
+              return "おやおや、所持金が足りないようだぜ！"
+            }
+
             return `あいよ！${this.cart}だな！${this.cost}Gだぜ！`
           }
         },
