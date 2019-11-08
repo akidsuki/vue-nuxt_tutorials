@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>道具屋</h1>
+      <h2>なにを買うんだい？所持金{{remainder}}G</h2>
+      <p v-for="(price, name) in goods">{{name}}:{{price}}G</p>
+      <p>結果：{{result}}</p>
+      <input type="text" v-model="cart" />
+    </div>
+
+    <script>
+      var vueobj = new Vue({
+        el: '#app',
+        data() {
+          return {
+            cart: null,
+            money: 500,
+            cost: 0,
+            goods: {
+              "やくそう": 8,
+              "キメラのつばさ": 25,
+              "せいすい": 20,
+              "どくけしそう": 10,
+            }
+          }
+        },
+        computed: {
+          remainder() {
+            return this.money - this.cost
+          },
+          result() {
+            const find = this.goods[this.cart]
+            if(!find) {
+              this.cost = 0
+              return "そんな商品取り扱ってないぜ！"
+            }
+            this.cost = find
+            return `あいよ！${this.cart}だな！${this.cost}Gだぜ！`
+          }
+        },
+      })
+    </script>
+  </body>
+</html>
